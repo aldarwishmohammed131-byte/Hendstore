@@ -1,0 +1,31 @@
+
+:root{
+  --bg:#0b0b0f;--panel:#12121a;--text:#f2f3f5;--muted:#9aa4b2;
+  --gold:#ffd166;--brand:#00d1c1;--border:#1f2330;--shadow:0 10px 30px rgba(0,0,0,.25)
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:15px/1.6 system-ui,-apple-system,Segoe UI,Roboto}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:rgba(18,18,26,.6);backdrop-filter:blur(6px);position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border)}
+.nav .left{display:flex;align-items:center;gap:12px}
+.nav img{height:26px}
+.nav .links a{margin:0 8px;color:var(--text);opacity:.9}
+.btn{background:linear-gradient(135deg,var(--gold),#ffae00);color:#111;font-weight:700;padding:10px 16px;border-radius:12px;border:none;box-shadow:var(--shadow);cursor:pointer}
+.btn.secondary{background:#1b2130;color:#e6e7eb}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+.grid{display:grid;gap:14px}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)} .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.grid.cols-4{grid-template-columns:repeat(2,1fr)} .grid.cols-3{grid-template-columns:repeat(2,1fr)} .grid.cols-2{grid-template-columns:1fr}}
+.product{background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.product img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.product .p{padding:10px}
+.badge{display:inline-block;background:#1d2433;color:var(--muted);padding:4px 8px;border-radius:20px;font-size:12px}
+.field{display:flex;flex-direction:column;margin-bottom:12px}
+input,select,textarea{background:#0f1422;border:1px solid var(--border);border-radius:12px;color:var(--text);padding:10px}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{border-bottom:1px solid var(--border);padding:10px;text-align:right}
+.footer{padding:28px 0;color:var(--muted);text-align:center;border-top:1px solid var(--border);margin-top:40px}
+.install-banner{display:none;position:fixed;bottom:16px;left:16px;right:16px;background:#101522;border:1px solid var(--border);padding:12px 14px;border-radius:14px;box-shadow:var(--shadow);z-index:50}
+.install-banner.show{display:flex;justify-content:space-between;align-items:center;gap:12px}
+small{color:var(--muted)} hr{border:none;border-top:1px solid var(--border);margin:16px 0}

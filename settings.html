@@ -1,0 +1,26 @@
+
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>الإعدادات — Hend Store</title><link rel="icon" href="/icon-192.png"><link rel="stylesheet" href="/styles.css"></head><body>
+<nav class="nav"><div class="left"><img src="/icon-192.png"><b>Hend Store</b></div><div class="links"><a href="/index.html">الرئيسية</a><a href="/catalog.html">الكتالوج</a><a href="/admin.html">لوحة التحكم</a></div></nav>
+<div class="container grid cols-2">
+  <div class="card"><h3>إعدادات المتجر</h3>
+    <div class="field"><label>رابط Google Apps Script (اختياري)</label><input id="endpoint" placeholder="https://script.google.com/.../exec"></div>
+    <div class="field"><label>العملة</label><select id="currency"><option>SAR</option><option>AED</option><option>KWD</option><option>QAR</option><option>BHD</option><option>OMR</option><option>YER</option><option>USD</option></select></div>
+    <div class="field"><label>اللغة</label><select id="lang"><option value="ar">العربية</option><option value="en">English</option></select></div>
+    <button class="btn" id="save">حفظ</button><div id="ok" style="display:none;margin-top:8px" class="card">تم الحفظ</div>
+  </div>
+  <div class="card"><h3>تنزيل التطبيق</h3><p>ثبّت Hend Store كتطبيق PWA على جهازك.</p><button class="btn" onclick="installApp()">تثبيت التطبيق الآن</button></div>
+</div>
+<footer class="footer">Hend Store © 2025</footer>
+<script src="/store.js"></script>
+<script>
+document.getElementById('endpoint').value=localStorage.getItem('AS_ENDPOINT')||'';
+document.getElementById('currency').value=localStorage.getItem('AS_CURRENCY')||'SAR';
+document.getElementById('lang').value=localStorage.getItem('AS_LANG')||'ar';
+document.getElementById('save').onclick=()=>{
+  localStorage.setItem('AS_ENDPOINT',document.getElementById('endpoint').value.trim());
+  localStorage.setItem('AS_CURRENCY',document.getElementById('currency').value);
+  localStorage.setItem('AS_LANG',document.getElementById('lang').value);
+  document.getElementById('ok').style.display='block';
+};
+</script></body></html>

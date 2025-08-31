@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "فستان أسود كلاسيك",
+    "price": 299,
+    "category": "fashion",
+    "category_ar": "أزياء",
+    "image": "/assets/img/p1.jpg",
+    "desc": "فستان فاخر بخامات عالية ومقاسات متعددة."
+  },
+  {
+    "id": 2,
+    "name": "عطر فاخر 50ml",
+    "price": 199,
+    "category": "beauty",
+    "category_ar": "تجميل",
+    "image": "/assets/img/p2.jpg",
+    "desc": "ثبات عالي بلمسة شرقية مميزة."
+  },
+  {
+    "id": 3,
+    "name": "حقيبة يد جلد",
+    "price": 249,
+    "category": "accessories",
+    "category_ar": "إكسسوارات",
+    "image": "/assets/img/p3.jpg",
+    "desc": "جلد صناعي ممتاز وألوان متعددة."
+  },
+  {
+    "id": 4,
+    "name": "أحمر شفاه مطفي",
+    "price": 89,
+    "category": "beauty",
+    "category_ar": "تجميل",
+    "image": "/assets/img/p4.jpg",
+    "desc": "درجات خليجية تناسب كل المناسبات."
+  }
+]

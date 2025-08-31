@@ -1,0 +1,18 @@
+
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>لوحة التحكم — Hend Store</title><link rel="icon" href="/icon-192.png"><link rel="stylesheet" href="/styles.css"></head><body>
+<nav class="nav"><div class="left"><img src="/icon-192.png"><b>Hend Store</b></div><div class="links"><a href="/index.html">الرئيسية</a><a href="/catalog.html">الكتالوج</a><a href="/settings.html">الإعدادات</a></div></nav>
+<div class="container"><div class="card">
+  <h3>الطلبات المحلية (على هذا الجهاز)</h3>
+  <table class="table" id="tbl"><thead><tr><th>الكود</th><th>التاريخ</th><th>الإجمالي</th><th>الحالة</th></tr></thead><tbody></tbody></table>
+  <button class="btn" id="sync">مزامنة إلى Google Sheet</button>
+  <small>أدخل رابط Apps Script في صفحة الإعدادات أولًا.</small>
+</div></div>
+<footer class="footer">Hend Store © 2025</footer>
+<script src="/store.js"></script>
+<script>
+const tb=document.querySelector('#tbl tbody');
+function render(){const rows=getOrders().map(o=>`<tr><td>${o.code}</td><td>${new Date(o.at).toLocaleString()}</td><td>${AS.fmt(o.total)}</td><td>${o.status}</td></tr>`).join('');tb.innerHTML=rows||'<tr><td colspan="4"><small>لا توجد طلبات</small></td></tr>';}
+render();
+document.getElementById('sync').onclick=async()=>{const list=getOrders();let ok=0;for(const o of list){const r=await sendToEndpoint(o);if(r.sent)ok++;}alert('تمت محاولة المزامنة. الطلبات المرسلة: '+ok);};
+</script></body></html>

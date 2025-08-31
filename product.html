@@ -1,0 +1,21 @@
+
+<!doctype html><html lang="ar" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تفاصيل المنتج — Hend Store</title>
+<link rel="icon" href="/icon-192.png"><link rel="stylesheet" href="/styles.css"></head><body>
+<nav class="nav"><div class="left"><img src="/icon-192.png"><b>Hend Store</b></div>
+<div class="links"><a href="/catalog.html">الكتالوج</a><a href="/checkout.html">الدفع</a><a href="/settings.html">الإعدادات</a></div></nav>
+<div class="container"><div id="wrap"></div></div>
+<footer class="footer">Hend Store © 2025</footer>
+<script src="/store.js"></script>
+<script>
+const id=qs('id');const wrap=document.getElementById('wrap');
+getProducts().then(list=>{const p=list.find(x=>String(x.id)===String(id));if(!p){wrap.innerHTML='<div class="card">المنتج غير موجود</div>';return;}
+wrap.innerHTML=`<div class="grid cols-2"><div class="card"><img src="${p.image}" style="width:100%;border-radius:12px"></div>
+<div class="card"><h2>${p.name}</h2><div class="badge">${p.category_ar}</div><p>${p.desc||''}</p><p><b>${AS.fmt(p.price)}</b></p>
+<div class="grid cols-2"><div class="field"><label>المقاس</label><select id="size"><option>S</option><option>M</option><option>L</option><option>XL</option></select></div>
+<div class="field"><label>اللون</label><select id="color"><option>أسود</option><option>أبيض</option><option>ذهبي</option><option>موف</option></select></div></div>
+<button class="btn" id="addBtn">إضافة للسلة</button></div></div>`;
+document.getElementById('addBtn').onclick=()=>{const item={id:p.id,name:p.name,price:p.price,image:p.image,size:document.getElementById('size').value,color:document.getElementById('color').value,qty:1};addToCart(item);location.href='/checkout.html';};
+});
+</script></body></html>

@@ -1,0 +1,29 @@
+
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>الدفع — Hend Store</title><link rel="icon" href="/icon-192.png"><link rel="stylesheet" href="/styles.css"></head><body>
+<nav class="nav"><div class="left"><img src="/icon-192.png"><b>Hend Store</b></div><div class="links"><a href="/catalog.html">الكتالوج</a><a href="/track.html">تتبع</a><a href="/settings.html">الإعدادات</a></div></nav>
+<div class="container grid cols-2">
+  <div class="card">
+    <h3>معلومات الشحن</h3>
+    <div class="field"><label>الاسم الكامل</label><input id="name"></div>
+    <div class="field"><label>رقم الجوال</label><input id="phone" placeholder="9665xxxxxxxx"></div>
+    <div class="field"><label>الدولة</label><select id="country"><option value="SA">السعودية</option><option value="AE">الإمارات</option><option value="KW">الكويت</option><option value="QA">قطر</option><option value="BH">البحرين</option><option value="OM">عُمان</option><option value="YE">اليمن</option></select></div>
+    <div class="field"><label>المدينة</label><input id="city"></div>
+    <div class="field"><label>العنوان</label><textarea id="address"></textarea></div>
+    <div class="field"><label>طريقة الدفع</label><select id="payment"><option>الدفع عند الاستلام</option><option disabled>بوابات إلكترونية (لاحقًا)</option></select></div>
+    <button class="btn" id="place">إتمام الطلب</button>
+    <div id="done" class="card" style="display:none;margin-top:12px"></div>
+  </div>
+  <div class="card"><h3>عربة التسوق</h3><div id="cart"></div></div>
+</div>
+<footer class="footer">Hend Store © 2025</footer>
+<script src="/store.js"></script>
+<script>
+const cartDiv=document.getElementById('cart');
+function renderCart(){const c=getCart();if(!c.length){cartDiv.innerHTML='<small>سلة التسوق فارغة</small>';return 0;}let total=0;
+cartDiv.innerHTML=c.map(it=>{total+=it.price*(it.qty||1);return `<div class="card" style="margin-bottom:8px;display:flex;gap:12px;align-items:center">
+<img src="${it.image}" style="width:70px;height:70px;object-fit:cover;border-radius:10px"><div><b>${it.name}</b><br><small>${it.size||''} • ${it.color||''}</small></div><div style="margin-right:auto"><b>${AS.fmt(it.price)}</b></div></div>`}).join('')+`<hr><b>الإجمالي: ${AS.fmt(total)}</b>`;return total;}
+let total=renderCart();
+document.getElementById('place').onclick=async()=>{const order={code:uid(),at:new Date().toISOString(),items:getCart(),total,name:document.getElementById('name').value,phone:document.getElementById('phone').value,country:document.getElementById('country').value,city:document.getElementById('city').value,address:document.getElementById('address').value,payment:document.getElementById('payment').value,status:'received'};
+saveOrder(order);const resp=await sendToEndpoint(order);clearCart();const d=document.getElementById('done');d.style.display='block';d.innerHTML=`<b>تم إنشاء الطلب بنجاح</b><br>رقم التتبع: <code>${order.code}</code><br><a class="btn" href="/track.html?code=${order.code}">تتبع الطلب</a>`;};
+</script></body></html>

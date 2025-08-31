@@ -1,0 +1,15 @@
+
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تتبع الطلب — Hend Store</title><link rel="icon" href="/icon-192.png"><link rel="stylesheet" href="/styles.css"></head><body>
+<nav class="nav"><div class="left"><img src="/icon-192.png"><b>Hend Store</b></div><div class="links"><a href="/catalog.html">الكتالوج</a><a href="/index.html">الرئيسية</a><a href="/settings.html">الإعدادات</a></div></nav>
+<div class="container"><div class="card"><div class="field"><label>رقم التتبع</label><input id="code" placeholder="HS-XXXX-12345"></div><button class="btn" id="go">استعلام</button></div><div id="result" style="margin-top:14px"></div></div>
+<footer class="footer">Hend Store © 2025</footer>
+<script src="/store.js"></script>
+<script>
+const q=qs('code');if(q){document.getElementById('code').value=q;}
+async function lookup(code){const local=getOrders().find(o=>o.code===code);if(local)return local;if(AS.endpoint){try{const r=await fetch(AS.endpoint+'?code='+encodeURIComponent(code));if(r.ok){const d=await r.json();if(d&&d.code)return d;}}catch(e){}}return null;}
+document.getElementById('go').onclick=async()=>{const code=document.getElementById('code').value.trim();const data=await lookup(code);const box=document.getElementById('result');
+if(!data){box.innerHTML='<div class="card">لم يتم العثور على طلب بهذا الرقم.</div>';return;}
+box.innerHTML=`<div class="card"><b>رقم الطلب:</b> ${data.code}<br><b>الحالة:</b> ${data.status||'قيد المعالجة'}<br><b>الإجمالي:</b> ${AS.fmt(data.total)}<br><b>المدينة:</b> ${data.city||''}<br><details style="margin-top:8px"><summary>المنتجات</summary>${(data.items||[]).map(i=>\`\${i.name} — \${AS.fmt(i.price)} (\${i.size||''} \${i.color||''})\`).join('<br>')}</details></div>`;};
+if(q){document.getElementById('go').click();}
+</script></body></html>

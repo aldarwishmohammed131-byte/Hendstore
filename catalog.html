@@ -1,0 +1,27 @@
+
+<!doctype html><html lang="ar" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>الكتالوج — Hend Store</title>
+<link rel="icon" href="/icon-192.png"><link rel="stylesheet" href="/styles.css">
+</head><body>
+<nav class="nav"><div class="left"><img src="/icon-192.png"><b>Hend Store</b></div>
+<div class="links"><a href="/index.html">الرئيسية</a><a href="/track.html">تتبع</a><a href="/settings.html">الإعدادات</a></div></nav>
+<div class="container">
+  <div class="card">
+    <div class="grid cols-3">
+      <div class="field"><label>الفئة</label><select id="cat"><option value="">الكل</option><option value="fashion">أزياء</option><option value="beauty">تجميل</option><option value="accessories">إكسسوارات</option></select></div>
+      <div class="field"><label>الفرز</label><select id="sort"><option value="new">الأحدث</option><option value="price-asc">السعر (تصاعدي)</option><option value="price-desc">السعر (تنازلي)</option></select></div>
+      <div class="field"><label>العملة</label><input id="cur" disabled></div>
+    </div>
+  </div>
+  <div id="grid" class="grid cols-4" style="margin-top:16px"></div>
+</div>
+<footer class="footer">Hend Store © 2025</footer>
+<script src="/store.js"></script>
+<script>
+document.getElementById('cur').value=AS.currency;
+const grid=document.getElementById('grid'),catSel=document.getElementById('cat'),sortSel=document.getElementById('sort');let list=[];
+function render(){let l=list.slice();const c=catSel.value;if(c)l=l.filter(x=>x.category===c);if(sortSel.value==='price-asc')l.sort((a,b)=>a.price-b.price);if(sortSel.value==='price-desc')l.sort((a,b)=>b.price-a.price);
+grid.innerHTML=l.map(p=>`<div class="product"><img src="${p.image}" alt="${p.name}"><div class="p"><div class="badge">${p.category_ar}</div><b>${p.name}</b><br><small>${AS.fmt(p.price)}</small><p style="margin-top:8px"><a class="btn" href="/product.html?id=${p.id}">عرض التفاصيل</a></p></div></div>`).join('');}
+getProducts().then(p=>{list=p;render()});catSel.onchange=sortSel.onchange=render;
+</script></body></html>
