@@ -1,18 +1,19 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hend Store</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hend Store</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/favicon.ico" />
 
-    <!-- (اختياري) لو عندك manifest/icons اترك هذه الروابط -->
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="icon" href="/favicon.ico" />
-  </head>
-  <body style="margin:0;background:#0b0b0f;color:#e5e7eb">
-    <div id="root"></div>
-    <!-- ربط React عبر Vite -->
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <!-- أضف هنا -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body style="margin:0;background:#0b0b0f;color:#e5e7eb">
+  <div id="root"></div>
+
+  <!-- ربط React -->
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>
-<script src="https://cdn.tailwindcss.com"></script>
