@@ -1,5 +1,5 @@
 
-# Hend Store — Luxury Logo Package
+
 
 هذه الحزمة تحتوي على شعار Hend Store بجودة عالية وصيغ متعددة:
 
