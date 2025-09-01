@@ -1,9 +1,7 @@
-export default function App() {
+export default function Button({ children, className = "", ...props }) {
   return (
-    <div className="min-h-screen bg-[#0b0b0f] text-slate-100 flex items-center justify-center">
-      <h1 className="text-3xl font-extrabold">
-        🚀 Hend Store is Live!
-      </h1>
-    </div>
+    <button className={"px-4 py-2 rounded-xl font-extrabold transition " + className} {...props}>
+      {children}
+    </button>
   );
 }
