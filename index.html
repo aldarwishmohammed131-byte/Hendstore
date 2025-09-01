@@ -9,14 +9,17 @@
     <link rel="manifest" href="/manifest.json" />
     <link rel="icon" href="/favicon.ico" />
 
-    <!-- Tailwind عبر CDN (مهم للتصميم) -->
+    <!-- Tailwind via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- تعطيل أي Service Worker قديم يحتبس نسخة خاطئة -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister()));
+      }
+    </script>
   </head>
   <body style="margin:0;background:#0b0b0f;color:#e5e7eb">
-    <!-- جذر React -->
     <div id="root"></div>
-
-    <!-- تشغيل React عبر Vite -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
