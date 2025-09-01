@@ -1,27 +1,29 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hend Store</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hend Store</title>
 
-    <!-- PWA -->
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="icon" href="/favicon.ico" />
+  <!-- (اختياري) Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- (اختياري) Tailwind عبر CDN للّمسات السريعة -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Import Map: تعريف مصادر الحِزم للمتصفح -->
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@18",
+      "react-dom/client": "https://esm.sh/react-dom@18/client",
+      "framer-motion": "https://esm.sh/framer-motion@11",
+      "lucide-react": "https://esm.sh/lucide-react@0.454.0"
+    }
+  }
+  </script>
+</head>
+<body class="bg-[#0b0b0f] text-slate-100">
+  <div id="root"></div>
 
-    <meta name="theme-color" content="#0b0b0f" />
-    <meta name="description" content="Hend Store — Premium on-demand fashion & beauty." />
-    <style>
-      body{background:#0b0b0f;color:#e5e7eb}
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-
-    <!-- ربط تطبيق React (لاحظ ./ وليس /) -->
-    <script type="module" src="./src/main.jsx"></script>
-  </body>
+  <!-- تشغيل تطبيق React -->
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>
