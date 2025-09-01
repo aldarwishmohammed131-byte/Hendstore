@@ -1,32 +1,12 @@
-
-<!doctype html><html lang="ar" dir="rtl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hend Store — الموضة والجمال حسب الطلب</title>
-<link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#ffd166">
-<link rel="icon" href="/icon-192.png"><link rel="apple-touch-icon" href="/icon-192.png">
-<link rel="stylesheet" href="/styles.css">
-<meta name="description" content="Hend Store — منصة أزياء وتجميل وإكسسوارات مع تصنيع حسب الطلب ودعم عملات الخليج.">
-</head><body>
-<nav class="nav">
-  <div class="left"><img src="/icon-192.png" alt="Hend"><b>Hend Store</b></div>
-  <div class="links"><a href="/catalog.html">الكتالوج</a><a href="/track.html">تتبع الطلب</a><a href="/settings.html">الإعدادات</a></div>
-</nav>
-<div class="container">
-  <div class="grid cols-2">
-    <div class="card">
-      <h1>موضة وجمال تُصنع عند الطلب</h1>
-      <p>تصاميم فاخرة، مقاسات مخصصة، ودعم عملات الخليج — تجربة سريعة تشبه التطبيقات.</p>
-      <div class="grid cols-3">
-        <div class="card"><small class="badge">الدفع</small><b>الدفع عند الاستلام</b></div>
-        <div class="card"><small class="badge">اللغات</small><b>العربية • الإنجليزية</b></div>
-        <div class="card"><small class="badge">التصنيع</small><b>تفصيل مقاسات وألوان</b></div>
-      </div>
-      <p><a class="btn" href="/catalog.html">استعرض الكتالوج</a></p>
-    </div>
-    <div class="card"><img src="/assets/img/hero.jpg" style="width:100%;border-radius:12px" alt=""></div>
-  </div>
-</div>
-<div id="installBanner" class="install-banner"><div>ثبّت <b>Hend Store</b> كتطبيق على جهازك.</div><button class="btn" onclick="installApp()">تثبيت التطبيق</button></div>
-<footer class="footer">Hend Store © 2025 — PWA</footer>
-<script src="/store.js"></script><script src="/app.js"></script>
-</body></html>
+{
+  "name": "Hend Store",
+  "short_name": "Hend",
+  "start_url": "/Hendstore/",
+  "display": "standalone",
+  "background_color": "#0b0b0f",
+  "theme_color": "#0b0b0f",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
