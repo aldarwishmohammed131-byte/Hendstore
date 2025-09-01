@@ -1,5 +1,11 @@
 
-Hend Store — Ultra+ (Fashion-focused)
-- Pages: index, catalog, product, checkout (COD), track, settings, admin
-- PWA ready: manifest + service worker + install banner
-- Google Sheets backend: use the Apps Script from previous README (same structure with doPost/doGet)
+# Hend Store — Luxury Logo Package
+
+هذه الحزمة تحتوي على شعار Hend Store بجودة عالية وصيغ متعددة:
+
+- hend_logo.svg → الشعار بصيغة SVG عالية الجودة.
+- hend_logo_transparent.png → شعار بخلفية شفافة.
+- hend_logo_black.png → شعار بخلفية سوداء فاخرة.
+- favicon.ico → أيقونة الموقع.
+
+يمكنك رفع هذه الملفات إلى GitHub أو استخدامها في تطبيقاتك.
