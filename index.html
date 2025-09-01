@@ -1,19 +1,22 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hend Store</title>
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="icon" href="/favicon.ico" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hend Store</title>
 
-  <!-- أضف هنا -->
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body style="margin:0;background:#0b0b0f;color:#e5e7eb">
-  <div id="root"></div>
+    <!-- PWA (اختياري) -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/favicon.ico" />
 
-  <!-- ربط React -->
-  <script type="module" src="/src/main.jsx"></script>
-</body>
+    <!-- Tailwind عبر CDN (مهم للتصميم) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body style="margin:0;background:#0b0b0f;color:#e5e7eb">
+    <!-- جذر React -->
+    <div id="root"></div>
+
+    <!-- تشغيل React عبر Vite -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
