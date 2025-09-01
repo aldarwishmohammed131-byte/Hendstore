@@ -1,30 +1,15 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hend Store</title>
-  <style>
-    body{margin:0;font-family:sans-serif;background:#0b0b0f;color:#fff}
-    header,footer{padding:15px;text-align:center;background:#111}
-    .wrap{min-height:80vh;display:grid;place-items:center;text-align:center}
-    .card{padding:30px;background:#1a1a1a;border-radius:16px;max-width:500px}
-    .btn{display:inline-block;margin-top:16px;padding:12px 18px;background:#fff;color:#111;border-radius:12px;text-decoration:none;font-weight:bold}
-  </style>
-</head>
-<body>
-  <header>
-    <h2>✨ Hend Store ✨</h2>
-  </header>
-  <div class="wrap">
-    <div class="card">
-      <h1>مرحبًا بك في Hend Store</h1>
-      <p>أفضل منصة للموضة والإكسسوارات</p>
-      <a href="product.html" class="btn">تصفح المنتجات</a>
-    </div>
-  </div>
-  <footer>
-    Hend Store © 2025
-  </footer>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hend Store</title>
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="/manifest.json" />
+  </head>
+  <body class="bg-[#0b0b0f] text-slate-100">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
